@@ -109,52 +109,6 @@
 
   <div class="inner-wrapper">
 
-    {% if request.user.is_authenticated %}
-    <!-- start: sidebar -->
-    <aside id="sidebar-left" class="sidebar-left">
-
-      <div class="sidebar-header">
-        <div class="sidebar-title">
-          Navigation
-        </div>
-        <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
-          <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
-        </div>
-      </div>
-
-      <div class="nano">
-        <div class="nano-content">
-          <nav id="menu" class="nav-main" role="navigation">
-            <ul class="nav nav-main">
-              <li class="nav-active">
-                <a href="{% url 'home:home' %}">
-                  <i class="fa fa-home" aria-hidden="true"></i>
-                  <span>Dashboard</span>
-                </a>
-              </li>
-              <li>
-                <a href="{% url 'home:home' %}">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <span>Manage</span>
-                </a>
-              </li>
-              <li>
-                <a href="{% url 'home:home' %}">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <span>User</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-
-        </div>
-
-      </div>
-
-    </aside>
-    <!-- end: sidebar -->
-    {% endif %}
-
     <section role="main" class="content-body">
       <header class="page-header">
         <h2>{% block header_title %}Dashboard{% endblock %}</h2>

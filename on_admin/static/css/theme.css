@@ -5385,7 +5385,7 @@ html.header-dark .notifications > li .notification-icon i {
 @media only screen and (max-width: 767px) {
 	.userbox {
 		float: left;
-		margin: 16px 0 0 12px;
+		margin: 16px 20px 0 20px;
 		position: relative;
 	}
 
@@ -15983,7 +15983,6 @@ html.dark .invoice table.table > tbody tr > td {
 /* Sign Screens - Wrappers */
 .body-sign {
 	display: table;
-	height: 100vh;
 	margin: 0 auto;
 	max-width: 500px;
 	padding: 0 15px;

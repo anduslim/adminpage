@@ -13,8 +13,28 @@ body
 	width: 320px;
 	margin: 0 auto;
 	padding: 0;
+
 }
 
+body
+{
+/*	background: url('../images/dark-bg.png') ;
+	height: 100vh;*/
+}
+
+section #app_info span.tagline
+{
+	color: #fff;
+}
+section #app_info p
+{
+	color: #a6a6a6;
+}
+
+h2,h3,h4,h5
+{
+	color: #fff;
+}
 
 section #app_info
 {
@@ -22,7 +42,7 @@ section #app_info
 	float: none;
 	width: 100%;
 	padding: 0;
-	margin-top: 30px;
+	margin-top: 60px;
 }
 section #app_info .logo
 {
@@ -64,7 +84,7 @@ section #app_info .buttons a:first-child
 section #app_info .price
 {
 	clear: both;
-	background: url('../img/light-arrow.png') no-repeat top center;
+	background: url('../images/dark-arrow.png') no-repeat top center;
 	padding-top: 50px;
 	text-align: center;
 }
@@ -81,7 +101,7 @@ section #app_info .price p
 {
 	font-family: 'Nothing You Could Do', cursive;
 	font-size: 20px;
-	color: #1f1f1f;
+	color: #FFFFFF;
 }
 /* @end */
 
@@ -197,24 +217,6 @@ section #app_info .price p
 
 /* @group Dark Theme */
 
-body
-{
-	background: url('../images/dark-bg.png') repeat top left;
-}
-
-section #app_info span.tagline
-{
-	color: #fff;
-}
-section #app_info p
-{
-	color: #a6a6a6;
-}
-
-h2,h3,h4,h5
-{
-	color: #fff;
-}
 section #pages p,section #pages ul
 {
 	color: #a6a6a6;

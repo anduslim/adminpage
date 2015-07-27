@@ -53,139 +53,38 @@
 
   <body>
 
+    <div id="page_wrapper">
     <!-- start: header -->
     <header class="header">
       <div class="logo-container">
-        <a href="{% url 'home:home' %}" class="logo">
+        <a href="../" class="logo">
           <img src="{% static 'images/logo.png' %}" height="35" alt="OnAdmin" />
         </a>
+        <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+          <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+
+        </div>
       </div>
 
-      <!-- start: search & user box -->
-      <div class="header-right">
 
-        {% if request.user.is_authenticated %}
-        <span class="separator"></span>
-        <div id="userbox" class="userbox">
-          <a href="#" data-toggle="dropdown">
-            <figure class="profile-picture">
-              <img src="{% static 'images/!logged-user.jpg' %}" alt="Joseph Doe" class="img-circle" data-lock-picture="{% static 'images/!logged-user.jpg' %}" />
-            </figure>
-            <div class="profile-info" data-lock-name="{{ request.user.username}}" data-lock-email="{{ request.user.email}}">
-              <span class="name">{{ request.user.username}}</span>
-              <span class="role">{% if request.user.is_staff %}administrator{% else %}user{% endif %}</span>
-            </div>
-
-            <i class="fa custom-caret"></i>
-          </a>
-
-          <div class="dropdown-menu">
-            <ul class="list-unstyled">
-              <li class="divider"></li>
-              <li>
-                <a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i class="fa fa-user"></i> My Profile</a>
-              </li>
-              <li>
-                <a role="menuitem" tabindex="-1" href="{% url 'account_logout' %}"><i class="fa fa-power-off"></i> Logout</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        {% else %}
-        <div id="userbox" class="userbox">
-        <a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
-        </div>
-        <span class="separator"></span>
-        <div id="userbox" class="userbox">
-        <a href="{% url 'account_login' %}">{% trans "Log In" %}</a>
-        </div>
-        {% endif %}
-
-      </div>
-      <!-- end: search & user box -->
     </header>
     <!-- end: header -->
 
-
-  <div class="inner-wrapper">
-
-    {% if request.user.is_authenticated %}
-    <!-- start: sidebar -->
-    <aside id="sidebar-left" class="sidebar-left">
-
-      <div class="sidebar-header">
-        <div class="sidebar-title">
-          Navigation
-        </div>
-        <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
-          <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
-        </div>
-      </div>
-
-      <div class="nano">
-        <div class="nano-content">
-          <nav id="menu" class="nav-main" role="navigation">
-            <ul class="nav nav-main">
-              <li class="nav-active">
-                <a href="{% url 'home:home' %}">
-                  <i class="fa fa-home" aria-hidden="true"></i>
-                  <span>Dashboard</span>
-                </a>
-              </li>
-              <li>
-                <a href="{% url 'home:home' %}">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <span>Manage</span>
-                </a>
-              </li>
-              <li>
-                <a href="{% url 'home:home' %}">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <span>User</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-
-        </div>
-
-      </div>
-
-    </aside>
-    <!-- end: sidebar -->
-    {% endif %}
-
-    <section role="main" class="content-body">
-      <header class="page-header">
-        <h2>{% block header_title %}Dashboard{% endblock %}</h2>
-
-        <div class="right-wrapper pull-right">
-          <ol class="breadcrumbs">
-            <li>
-              <a href="{% url 'home:home' %}">
-                <i class="fa fa-home"></i>
-              </a>
-            </li>
-            <li><span>{% block breadcrumb_title %}Dashboard{% endblock %}</span></li>
-          </ol>
-        </div>
-      </header>
+    <div class="container-home">
 
       {% if messages %}
-        {% for message in messages %}
-            <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
-        {% endfor %}
+          {% for message in messages %}
+              <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+          {% endfor %}
       {% endif %}
 
-      <!-- start: page -->
       {% block content %}
-      <p>Use this document as a way to quick start any new project.</p>
+        <p>Use this document as a way to quick start any new project.</p>
       {% endblock content %}
+    </div> <!-- /container -->
 
-      <!-- end: page -->
-    </section>
-  </div>
-
+    </div>
+    {% block modal %}{% endblock modal %}
 
     <!-- Le javascript
     ================================================== -->
