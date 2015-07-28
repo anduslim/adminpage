@@ -45,6 +45,7 @@ THIRD_PARTY_APPS = (
 LOCAL_APPS = (
     'on_admin.users',  # custom users app
     'on_admin.home',
+    'on_admin.dashboard',
     # Your stuff: custom apps go here
 )
 
@@ -218,7 +219,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 # Custom user app defaults
 # Select the correct user model
 AUTH_USER_MODEL = 'users.User'
-LOGIN_REDIRECT_URL = 'users:redirect'
+LOGIN_REDIRECT_URL = 'dashboard:redirect'
 LOGIN_URL = 'account_login'
 
 # SLUGLIFIER

@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% load staticfiles i18n %}
+{% load url from future %}
+
+{% block head_title %}Manage{% endblock %}
+{% block header_title %}Manage{% endblock %}
+{% block breadcrumb_title %}Manage{% endblock %}
+{% block manage_menu_active %}nav-active{% endblock %}
+{% block notification_badge_count %}{{ notifications|length }}{% endblock %}
+{% block notification_label_count %}{{ notifications|length }}{% endblock %}
+{% block notification_list %}
+	{% if not notification|length %}
+    <li>
+    <a href="#" class="clearfix">
+      <div class="image">
+        <i class="fa fa-thumbs-up bg-success"></i>
+      </div>
+      <span class="title">No notification available.</span>
+    </a>
+    </li>
+	{% endif %}
+    {% for note in notifications %}
+    <li>
+    <a href="#" class="clearfix">
+      <div class="image">
+        {% if 'Warning' in note.Loglevel %}
+        <i class="fa fa-warning bg-warning"></i>
+        {% elif 'Error' in note.Loglevel %}
+        <i class="fa fa-minus-circle bg-danger"></i>
+        {% elif "Info" in note.Loglevel %}
+        <i class="fa fa-info-circle bg-success"></i>
+        {% endif %}
+      </div>
+      <span class="title">{{ note.Message }}</span>
+      <span class="message">{{ note.Date }}</span>
+    </a>
+    </li>
+    {% endfor %}
+{% endblock %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel panel-group">
+            <header class="panel-heading bg-primary">
+
+                <div class="widget-profile-info">
+                    <div class="panel-heading-icon bg-primary mt-sm">
+                        <i class="fa fa-gears"></i>
+                    </div>
+                    <div class="profile-info">
+                        <h4 class="name text-weight-semibold">Services</h4>
+                        <h5 class="role">{{ services.count }}</h5>
+                        <div class="profile-footer">
+                            <a href="#">(updated 30s ago)</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div id="accordion">
+                {% for service in services.services %}
+                <div class="panel panel-accordion panel-accordion-first">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1One">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-2">
+                                {{ service.name }}
+                                </div>
+                                <div class="col-xs-12 col-sm-2">
+                                {{ service.status }}
+                                </div>
+                                <div class="col-xs-12 col-sm-2">
+                                {{ service.host }}
+                                </div>
+                                <div class="col-xs-12 col-sm-2">
+                                {{ service.uptime }}
+                                </div>
+                            </div>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse1One" class="accordion-body collapse in">
+                        <div class="panel-body">
+                            <ul class="widget-todo-list ui-sortable">
+                                <li>
+                                    <div class="checkbox-custom checkbox-default">
+                                        <input type="checkbox" checked="" id="todoListItem1" class="todo-check">
+                                        <label class="todo-label line-through" for="todoListItem1"><span>Lorem ipsum dolor sit amet</span></label>
+                                    </div>
+                                    <div class="todo-actions">
+                                        <a class="todo-remove" href="#">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox-custom checkbox-default">
+                                        <input type="checkbox" id="todoListItem2" class="todo-check">
+                                        <label class="todo-label" for="todoListItem2"><span>Lorem ipsum dolor sit amet</span></label>
+                                    </div>
+                                    <div class="todo-actions">
+                                        <a class="todo-remove" href="#">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox-custom checkbox-default">
+                                        <input type="checkbox" id="todoListItem3" class="todo-check">
+                                        <label class="todo-label" for="todoListItem3"><span>Lorem ipsum dolor sit amet</span></label>
+                                    </div>
+                                    <div class="todo-actions">
+                                        <a class="todo-remove" href="#">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="panel panel-accordion">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1Two">
+                                 <i class="fa fa-comment"></i> Messages
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse1Two" class="accordion-body collapse">
+                        <div class="panel-body">
+                            <ul class="simple-user-list mb-xlg">
+                                <li>
+                                    <figure class="image rounded">
+                                        <img src="assets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle">
+                                    </figure>
+                                    <span class="title">Joseph Doe Junior</span>
+                                    <span class="message">Lorem ipsum dolor sit.</span>
+                                </li>
+                                <li>
+                                    <figure class="image rounded">
+                                        <img src="assets/images/!sample-user.jpg" alt="Joseph Junior" class="img-circle">
+                                    </figure>
+                                    <span class="title">Joseph Junior</span>
+                                    <span class="message">Lorem ipsum dolor sit.</span>
+                                </li>
+                                <li>
+                                    <figure class="image rounded">
+                                        <img src="assets/images/!sample-user.jpg" alt="Joe Junior" class="img-circle">
+                                    </figure>
+                                    <span class="title">Joe Junior</span>
+                                    <span class="message">Lorem ipsum dolor sit.</span>
+                                </li>
+                                <li>
+                                    <figure class="image rounded">
+                                        <img src="assets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle">
+                                    </figure>
+                                    <span class="title">Joseph Doe Junior</span>
+                                    <span class="message">Lorem ipsum dolor sit.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}

@@ -5385,7 +5385,7 @@ html.header-dark .notifications > li .notification-icon i {
 @media only screen and (max-width: 767px) {
 	.userbox {
 		float: left;
-		margin: 16px 20px 0 20px;
+		margin: 16px 0 0 12px;
 		position: relative;
 	}
 
@@ -6528,7 +6528,7 @@ html .panel .panel-heading-transparent + .panel-body {
 	.panel-actions {
 		float: none;
 		margin-bottom: 15px;
-		position: static;
+		/*position: static;*/
 		text-align: right;
 	}
 
@@ -8182,7 +8182,7 @@ body .ui-pnotify.icon-nb .notification .ui-pnotify-icon > span {
 }
 
 .panel-group .panel-accordion {
-	border: 1px solid #DDD;
+	/*border: 1px solid #DDD;*/
 }
 
 .panel-group .panel-accordion .panel-heading {
@@ -15983,6 +15983,7 @@ html.dark .invoice table.table > tbody tr > td {
 /* Sign Screens - Wrappers */
 .body-sign {
 	display: table;
+	height: 100vh;
 	margin: 0 auto;
 	max-width: 500px;
 	padding: 0 15px;

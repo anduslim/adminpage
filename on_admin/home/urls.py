@@ -7,8 +7,8 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name="home"),
-    url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name="about"),
+    url(r'^$', TemplateView.as_view(template_name='home/home.html'), name="home"),
+    url(r'^about/$', TemplateView.as_view(template_name='home/about.html'), name="about"),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
