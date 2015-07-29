@@ -6,7 +6,8 @@ body
 {
 	font-size: 13px;
 	font-family: "Helvetica Neue", helvetica, sans-serif;
-	background: #fff;
+	/*background: #f35;*/
+	background: url('../images/dark-bg.png') ;
 }
 .container-home
 {
@@ -16,11 +17,11 @@ body
 
 }
 
-body
+/*body
 {
 	background: url('../images/dark-bg.png') ;
 	height: 100vh;
-}
+}*/
 
 section #app_info span.tagline
 {

@@ -111,7 +111,7 @@ class DashboardManageView(LoginRequiredMixin, TemplateView):
                     },
                 'hosts': {
                          'overall_status': 'OK',
-                         'count': '1 active',
+                         'count': '2 active',
                          'hosts':
                          [
                             {'name': 'AppServer',

@@ -1368,7 +1368,7 @@ html.fixed .visible-xl-inline-block {
 	.table-responsive > .table > thead > tr > td,
 	.table-responsive > .table > tbody > tr > td,
 	.table-responsive > .table > tfoot > tr > td {
-		white-space: nowrap;
+		white-space: initial;
 	}
 
 	.table-responsive > .table-bordered {
