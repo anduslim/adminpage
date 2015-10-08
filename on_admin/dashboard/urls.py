@@ -36,4 +36,5 @@ urlpatterns = [
         view=views.DashboardUserView.as_view(),
         name='user'
     ),
+    url(r'^test/$', views.testAjaxCall.as_view(), name='test'),
 ]

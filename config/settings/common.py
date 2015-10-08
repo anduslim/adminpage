@@ -259,3 +259,8 @@ LOGGING = {
 }
 
 # Your common stuff: Below this line define 3rd party library settings
+EMAIL_USE_TLS = False
+EMAIL_HOST = 'smtp.mailgun.org'
+EMAIL_HOST_USER = 'postmaster@wheelaccess.info'
+EMAIL_HOST_PASSWORD = 'wolfen83'
+EMAIL_PORT = 587

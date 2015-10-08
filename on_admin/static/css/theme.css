@@ -15983,7 +15983,7 @@ html.dark .invoice table.table > tbody tr > td {
 /* Sign Screens - Wrappers */
 .body-sign {
 	display: table;
-	height: 100vh;
+/*	height: 100vh;*/
 	margin: 0 auto;
 	max-width: 500px;
 	padding: 0 15px;

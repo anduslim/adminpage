@@ -1,8 +1,10 @@
 from __future__ import absolute_import, unicode_literals
-from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView
+from django.views.generic import RedirectView, TemplateView, View
+from django.http import HttpResponse
 from django.core.urlresolvers import reverse
 from braces.views import LoginRequiredMixin
 from on_admin.users.models import User
+import requests
 
 
 class DashboardRedirectView(LoginRequiredMixin, RedirectView):
@@ -185,3 +187,24 @@ class DashboardUserView(LoginRequiredMixin, TemplateView):
 
     def dispatch(self, *args, **kwargs):
         return super(DashboardUserView, self).dispatch(*args, **kwargs)
+
+
+class testAjaxCall(View):
+    '''
+    AJAX call to generate keys
+    '''
+
+    def send_simple_message(self):
+        return requests.post(
+            "https://api.mailgun.net/v3/wheelaccess.info/messages",
+            auth=("api", "key-9a1f3b474424cca0aefff503afc697d8"),
+            data={"from": "Excited User <mailgun@accessibility.place>",
+                  "to": ["anduslim@gozolabs.com.com", "anduslim@gozolabs.com"],
+                  "subject": "Hello",
+                  "text": "Testing some Mailgun awesomness!"})
+
+    def get(self, request):
+        data = request.GET
+        self.send_simple_message()
+
+        return HttpResponse("Okay", status=200)
